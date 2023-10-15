@@ -1,6 +1,6 @@
 export default function Advantages() {
     return (
-      <section className="flex gap-[20px] container mx-auto bg-[#fff] p-[35px] hover:shadow-lg hover:shadow-[#f7fffa]-500 mb-[30px]">
+      <section className="flex gap-[20px] container max-1280 bg-[#fff] p-[35px] hover:shadow-lg hover:shadow-[#f7fffa]-500 mb-[30px]">
          <div className="flex gap-[20px]" >
            <img className="h-[24px] w-[24px]" src="/img/advantages1.png" alt="advantages1" width={15} height={15} />
            <div className="flex flex-col gap-[10px]">

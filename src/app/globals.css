@@ -16,6 +16,13 @@
   }
 }
 
+a:hover, 
+a:focus {
+  color: #e3dde5;
+    opacity: 0.8;
+    transition: opacity 0.25s ease-in;
+}
+
 @font-face {
   font-family: 'IBM Plex Sans';
   src: url('/fonts/IBMPlexSans-Regular.woff2') format('woff2'),
@@ -66,8 +73,8 @@ body {
 .search-select-item {
   font-size: 13px;
   cursor: default;
-  color: #2865b7;
-  border-bottom: 1px dashed #2865b7;
+  color: #4682B4;
+  border-bottom: 1px dashed #4682B4;
 }
 
 .search-select--expand::before {
@@ -100,8 +107,8 @@ body {
 .examples__select {
   font-size: 13px;
   cursor: pointer;
-  color: #2865b7;
-  border-bottom: 1px solid #2865b7;
+  color: #4682B4;
+  border-bottom: 1px solid #4682B4;
 }
 
 .is-active {
@@ -165,7 +172,7 @@ body {
     font-size: 14px;
     color: #fff;
     border-radius: 0 4px 4px 0;
-    background-color: #4764a5;
+    background-color: #4682B4;
 }
 
 .search_btn:hover {
@@ -196,5 +203,7 @@ body {
   background-position: 50% 50%;
   cursor: pointer;
 }
+
+
 
 

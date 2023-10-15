@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="w-full bg-[#2f323c]">
-      <div className="container mx-auto py-[25px] px-[25px] mt-[50px]">
+      <div className="container max-1280 py-[25px] px-[25px] mt-[50px]">
         <ul className="flex justify-between mb-[30px]">
           <li className="flex flex-col">
             <span className="text-[16px] text-[#fff] font-[700] mb-[20px]">
@@ -143,7 +143,8 @@ export default function Footer() {
             height={15}
           />
         </a>
-        <div className="flex justify-between items-center pt-[20px] border-t-[2px] border-[#464856]">
+        <div className="pt-[20px] border-t-[2px] border-[#464856] flex justify-center">
+        <div className="flex justify-between items-center w-[60%] ">
           <img
             className="w-[77px] h-[78px]"
             src="/img/rosreestr-footer-check.png"
@@ -164,6 +165,8 @@ export default function Footer() {
             <span className="text-[#fff] text-[14px]">Телефон:   <a href="tel:+74994500242">+7 (499) 450-02-42</a></span>
           </div>
         </div>
+        </div>
+
       </div>
     </footer>
   );

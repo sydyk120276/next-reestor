@@ -5,8 +5,8 @@ import Nav from "./nav"
 export default function Header() {
   return (
     <header className="flex flex-col w-full">
-      <div className="container flex justify-between mx-auto p-[10px]">
-        <div className="flex items-center">
+      <div className="container max-1280 flex justify-between p-[10px]">
+        <Link href={'/'} className="flex items-center">
           <svg
             width="50"
             height="50"
@@ -58,15 +58,15 @@ export default function Header() {
             />
           </svg>
           <div className="ml-[10px] flex flex-col">
-            <a href="/" className="logo__name">
+            <span className="logo__name">
               reestor.net
-            </a>
+            </span>
             <p className="logo__description">
               Онлайн сервис проверки
               <br /> недвижимости перед покупкой
             </p>
           </div>
-        </div>
+        </Link>
         <div className="flex items-center">
           <span className="text-[#888]">
             Тех поддержка:{" "}
@@ -74,7 +74,7 @@ export default function Header() {
           </span>
           <Link
             href="/"
-            className="flex items-center justify-center w-[130px] h-[30px] cursor-pointer text-[13px] text-[#fff] bg-[#4a649a] rounded-[4px] ml-[100px]"
+            className="flex items-center justify-center w-[130px] h-[30px] cursor-pointer text-[13px] text-[#fff] bg-[#4682B4] rounded-[4px] ml-[100px]"
           >
             Личный кабинет
           </Link>

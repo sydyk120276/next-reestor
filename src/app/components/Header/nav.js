@@ -5,8 +5,8 @@ import menu from '../../utils/menu'
 export default function Nav() {
 
     return (
-      <div className="w-full bg-[#536d9c]">
-        <div className="container mx-auto py-[15px] px-[25px]">
+      <div className="w-full bg-[#4682B4]">
+        <div className="container max-1280 py-[15px] px-[25px]">
             <ul className="flex justify-between">
                 {menu.map((elem) => {
                     return (

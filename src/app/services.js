@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Services() {
     return (
-        <section className="container max-1280 flex flex-col">
+        <section className="container mx-auto xl:max-w-screen-xl flex flex-col">
         <h3 className="text-center font-[700] text-[20px] p-[25px]">
         Онлайн сервисы для проверки юридической чистоты недвижимости перед покупкой:
         </h3>

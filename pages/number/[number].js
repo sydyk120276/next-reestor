@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import Link from "next/link";
+import axios from "axios";
 
 import '../../src/app/globals.css'
 
@@ -7,7 +8,12 @@ import Header from '../../src/app/components/Header/header'
 import Footer from '../../src/app/components/Footer/footer'
 import Search from '../../src/app/components/search'
 
-export default function RootLayout() {
+export default function RootLayout({ object }) {
+
+  const cadastrObject =  JSON.parse(object)
+
+  console.log('cadastrObject', cadastrObject)
+
   const router = useRouter()
   const Number = router.query.number
   console.log('router.query', router.query)
@@ -15,32 +21,32 @@ export default function RootLayout() {
     return (
       <div className="flex min-h-screen flex-col bg-[#f7f8f8]">
         <Header />
-        <div className="container flex gap-[5px] items-center max-1280 text-[12px] text-left p-[25px] pl-[0px]">
+        <div className="container mx-auto xl:max-w-screen-xl flex gap-[5px] items-center mx-auto text-[12px] text-left p-[25px] pl-[0px]">
           <Link href={'/'} className='text-[#4682B4] underline'>Главная</Link>
           <span className='text-[#4682B4]'>&gt;</span>
-          <span className='text-[#787878]'>{Number}</span>
+          <span className='text-[#787878]'>{cadastrObject.objectData.objectAddress.mergedAddress}</span>
         </div>
-        <div className="container max-1280 bg-[#fff] p-[35px] hover:shadow-lg hover:shadow-[#f7fffa]-500 mb-[30px]">
+        <div className="container mx-auto xl:max-w-screen-xl bg-[#fff] p-[35px] hover:shadow-lg hover:shadow-[#f7fffa]-500 mb-[30px]">
         <Search />
         </div>
-        <div className="container max-1280 bg-[#fff] p-[35px] hover:shadow-lg hover:shadow-[#f7fffa]-500 mb-[30px]">
-          <h1 className="text-center text-[#396934] font-[500] text-[30px] p-[25px] border-b-[1px] border-[#dbdbdb]">Сведения по объекту Иркутская обл , Иркутский р-н , с Оек - кадастровый номер 38:06:010701:4171</h1>
+        <div className="container mx-auto xl:max-w-screen-xl bg-[#fff] p-[35px] hover:shadow-lg hover:shadow-[#f7fffa]-500 mb-[30px]">
+        <h1 className="text-center text-[#396934] font-[500] text-[30px] p-[25px] border-b-[1px] border-[#dbdbdb]">Сведения по объекту {cadastrObject.objectData.objectAddress.mergedAddress}, {cadastrObject.objectData.objectName} кадастровый номер {cadastrObject.parcelData.parcelCn}</h1>
          <div className='flex justify-around items-center mt-[30px] mb-[50px]'>
           <div className='flex flex-col text-[14px]'>
-            <span className=' mb-[7px]'>Тип: <strong>земельный участок</strong></span>
-            <span className='mb-[7px]'>Статус: <strong>ранее учтенный</strong></span>
-            <span className='mb-[7px]'>Кадастровый номер: <strong>38:06:010701:4171</strong></span>
-            <span className='mb-[7px]'>Регион:: <strong>Иркутская область</strong></span>
-            <span className='mb-[7px]'>Кадастровый район: <strong>Иркутский кадастровый район</strong></span>
-            <span className='mb-[7px]'>Адрес полный: <strong>Иркутская обл , Иркутский р-н , с Оек</strong></span>
-            <span className='mb-[25px]'>Адрес по документам: <strong>Иркутская область, Иркутский район</strong></span>
-            <span className='mb-[7px]'>Площадь: <strong>800,00 м2 (квадратный метр)</strong></span>
-            <span className='mb-[7px]'>По документу числится: <strong>для ведения личного подсобного хозяйства</strong></span>
-            <span className='mb-[7px]'>Категория земель: <strong>земли сельскохозяйственного назначения</strong></span>
-            <span className='mb-[7px]'>Дата постановки на учёт: <strong>17.05.2016</strong></span>
-            <span className='mb-[25px]'>Дата обновления информации: <strong>11.01.2023</strong></span>
-            <span className='mb-[7px]'>Кадастровая стоимость: <strong>372 584 руб.</strong></span>
-            <span className='mb-[7px]'>Дата определения стоимости: <strong>01.01.2022</strong></span>
+            <span className=' mb-[7px]'>Тип: <strong>{cadastrObject.objectData.objectName}</strong></span>
+            <span className='mb-[7px]'>Статус: <strong>{cadastrObject.parcelData.parcelStatusStr}</strong></span>
+            <span className='mb-[7px]'>Кадастровый номер: <strong>{cadastrObject.parcelData.parcelCn}</strong></span>
+            <span className='mb-[7px]'>Регион: <strong>{cadastrObject.objectData.objectAddress.district}</strong></span>
+            {/* <span className='mb-[7px]'>Кадастровый район: <strong>{cadastrObject.objectData.objectAddress.district}</strong></span> */}
+            <span className='mb-[25px]'>Адрес полный: <strong>{cadastrObject.objectData.objectAddress.mergedAddress}</strong></span>
+            {/* <span className='mb-[25px]'>Адрес по документам: <strong>{cadastrObject.objectData.addressNote}</strong></span> */}
+            <span className='mb-[7px]'>Площадь: <strong>{cadastrObject.parcelData.areaValue} м2 (квадратный метр)</strong></span>
+            {/* <span className='mb-[7px]'>По документу числится: <strong>{cadastrObject.parcelData.utilByDoc}</strong></span>
+            <span className='mb-[7px]'>Категория земель: <strong>{cadastrObject.parcelData.categoryTypeValue}</strong></span> */}
+            <span className='mb-[7px]'>Дата постановки на учёт: <strong>{cadastrObject.parcelData.dateCreate}</strong></span>
+            <span className='mb-[25px]'>Дата обновления информации: <strong>{cadastrObject.objectData.actualDate}</strong></span>
+            <span className='mb-[7px]'>Кадастровая стоимость: <strong>{cadastrObject.parcelData.cadCost} руб.</strong></span>
+            <span className='mb-[7px]'>Дата определения стоимости: <strong>{cadastrObject.parcelData.dateCost}</strong></span>
             <span className='mb-[7px]'>Дата внесения стоимости в базу: <strong>10.01.2023</strong></span>
             <strong className='mb-[20px]'>Предварительный расчет налога по общей формуле:  <span> 373 руб.</span></strong>
             <smal className="text-[13px] text-[#aaa] italic">Информация выше дублируется из открытых источников и может быть устаревшей.</smal>
@@ -68,7 +74,7 @@ export default function RootLayout() {
             <div className="flex flex-col text-[13px] leading-[18px] mb-[30px] px-[5px]">
               <span className="font-[600]">Свидетельство о регистрации:</span>
               <span>№ **:**:010701:*17*-38/**<br />
-                от 25.08.2021(Собственность)</span>
+                от 25.08.2021({})</span>
             </div>
             <span className="text-[15px] text-[#264d6c] uppercase font-[700] tracking-[0.5px] mb-[30px]">АРЕСТ, ОБРЕМЕНЕНИЯ И ЗАЛОГ:</span>
             <div className="flex text-[13px] gap-[5px] items-start mb-[15px]">
@@ -234,4 +240,19 @@ export default function RootLayout() {
         <Footer />
       </div>
     )
+  }
+
+  export async function getServerSideProps(context) {
+    const { query } = context;
+    const number = query.number;
+    console.log('Query parameters:', number);
+    // Получите данные с сервера
+    const getReestr = await axios(`https://mkdfond.ru/api/partner?cadNumber=${number}`);
+  
+    // Верните данные как свойство props
+    return {
+      props: {
+        object: JSON.stringify(getReestr?.data),
+      },
+    };
   }

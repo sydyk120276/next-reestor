@@ -18,7 +18,6 @@
 
 a:hover, 
 a:focus {
-  color: #e3dde5;
     opacity: 0.8;
     transition: opacity 0.25s ease-in;
 }
@@ -58,7 +57,7 @@ body {
 
 .logo__name {
   font-weight: 700;
-  color: #096fac;
+  color: white;
   font-size: 20px;
   line-height: 1em;
   text-transform: uppercase;
@@ -67,7 +66,7 @@ body {
 .logo__description {
   line-height: 1em;
   font-size: 10px;
-  color: #939393;
+  color: #d2b9b9;
 }
 
 .search-select-item {
@@ -119,52 +118,6 @@ body {
   border-bottom: none;
 }
 
-.css-b62m3t-container {
-  height: 46px !important;
-  width: 90% !important;
-  font-size: 15px;
-  border-radius: 4px 0 0 4px !important;
-  border: 1px solid #6ea3df;
-  color: #000;
-  border-right: none;
-}
-
-.css-13cymwt-control {
-  height: 46px !important;
-  font-size: 15px !important;
-  border-radius: 4px 0 0 4px !important;
-  border: 1px solid #6ea3df !important;
-  color: #000 !important;
-  border-right: none;
-}
-.css-13cymwt-control:active {
-  height: 46px !important;
-  font-size: 15px !important;
-  border-radius: 4px 0 0 4px !important;
-  border: 1px solid #6ea3df !important;
-  color: #000 !important;
-  border-right: none;
-}
-.css-t3ipsp-control {
-  height: 46px !important;
-  font-size: 15px !important;
-  border-radius: 4px 0 0 4px !important;
-  border: 1px solid #6ea3df !important;
-  color: #000 !important;
-  border-right: none;
-}
-
-.css-13cymwt-control:hover {
-  background-color: #fffcf2;
-}
-.css-1hb7zxy-IndicatorsContainer {
-  display: none !important;
-}
-
-.css-1nmdiq5-menu {
-  margin-top: 3px !important;
-}
-
 .search_btn {
     width: 183px;
     height: 46px;
@@ -204,6 +157,46 @@ body {
   cursor: pointer;
 }
 
+
+/* CSS для фиксированного заголовка */
+.fixed-header {
+  position: sticky;
+  top: 0;
+  background-color: #598a60; /* Цвет фона thead */
+  color: #fff; /* Цвет текста */
+  height: 40px; /* Высота thead */
+  z-index: 1; /* Задний план, чтобы заголовок оставался выше контента при прокрутке */
+}
+
+.loader {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+  margin:15px auto;
+  position: relative;
+  color: #c3cdd4;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+  }
+  25% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 2px;
+  }
+  50% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 2px,  -38px 0 0 -2px;
+  }
+  75% {
+    box-shadow: 14px 0 0 2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+  }
+  100% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+  }
+}
 
 
 

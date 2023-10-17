@@ -6,7 +6,7 @@ import Search from './components/search'
 export default function Main() {
 
   return (
-    <section className="container max-1280 flex flex-col">
+    <section className="container mx-auto xl:max-w-screen-xl flex flex-col">
       <h1 className="text-center font-[500] text-[30px] p-[25px]">
         Поиск объектов и проверка недвижимости перед покупкой
       </h1>

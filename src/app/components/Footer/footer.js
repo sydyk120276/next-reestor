@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="w-full bg-[#2f323c]">
-      <div className="container max-1280 py-[25px] px-[25px] mt-[50px]">
+      <div className="container mx-auto xl:max-w-screen-xl py-[25px] px-[25px] mt-[50px]">
         <ul className="flex justify-between mb-[30px]">
           <li className="flex flex-col">
             <span className="text-[16px] text-[#fff] font-[700] mb-[20px]">
@@ -144,7 +144,7 @@ export default function Footer() {
           />
         </a>
         <div className="pt-[20px] border-t-[2px] border-[#464856] flex justify-center">
-        <div className="flex justify-between items-center w-[60%] ">
+        <div className="flex justify-between items-center w-[80%] ">
           <img
             className="w-[77px] h-[78px]"
             src="/img/rosreestr-footer-check.png"

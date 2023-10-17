@@ -1,6 +1,6 @@
 export default function Examples() {
   return (
-    <section className="flex  flex-col gap-[20px] container max-1280 bg-[#fff] p-[35px] hover:shadow-lg hover:shadow-[#f7fffa]-500 mb-[30px]">
+    <section className="flex  flex-col gap-[20px] container mx-auto xl:max-w-screen-xl bg-[#fff] p-[35px] hover:shadow-lg hover:shadow-[#f7fffa]-500 mb-[30px]">
       <h2 className="text-[26px] font-[700]">
         Информация и образцы отчетов о проверке недвижимости
       </h2>

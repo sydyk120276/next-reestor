@@ -71,7 +71,7 @@ body {
 
 .search-select-item {
   font-size: 13px;
-  cursor: default;
+  cursor: pointer;
   color: #4682B4;
   border-bottom: 1px dashed #4682B4;
 }
@@ -85,15 +85,6 @@ body {
     content: "";
     margin-right: 8px
 }
-.search-select--active .search-select--expand::before {
-    display: inline-block;
-    vertical-align: baseline;
-    width: 16px;
-    height: 10px;
-    background: url(/img/search-expanded-active.png);
-    content: "";
-    margin-right: 8px
-}
 
 .search-select--active {
     background: #f0f3f6;
@@ -101,6 +92,16 @@ body {
     padding: 4px 10px 3px;
     border-radius: 5px;
     border-bottom: none;
+}
+
+.search-select--active::before {
+  display: inline-block;
+  vertical-align: baseline;
+  width: 16px;
+  height: 10px;
+  background: url(/img/search-expanded-active.png);
+  content: "";
+  margin-right: 8px
 }
 
 .examples__select {
@@ -134,8 +135,18 @@ body {
 
 .examples__zoom {
   position: relative;
-  width: 118px;
-  height: 185px;
+  width: 200px;
+  height: 280px;
+}
+
+.examples__zoom::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.2);
 }
 
 .examples__zoom img {
@@ -144,6 +155,74 @@ body {
 }
 
 .examples__zoom:hover::before {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url('/img/zoom-in.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  cursor: pointer;
+}
+.examples__zoom-alt {
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+
+.examples__zoom-alt::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.2);
+}
+
+.examples__zoom-alt img {
+  width: 100%;
+  height: 100%;
+}
+
+.examples__zoom-alt:hover::before {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url('/img/zoom-in.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  cursor: pointer;
+}
+.examples__zoom-checkbox {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.examples__zoom-checkbox::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.2);
+}
+
+.examples__zoom-checkbox img {
+  width: 100%;
+  height: 100%;
+}
+
+.examples__zoom-checkbox:hover::before {
   content: "";
   top: 0;
   left: 0;
@@ -198,5 +277,24 @@ body {
   }
 }
 
+.examples__list li::before {
+  color: #4682B4;
+  content: "\25CF";
+  padding-right: 10px;
+}
 
+.section-modalka {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.section {
+  background: black;
+  z-index: 999;
+}
 

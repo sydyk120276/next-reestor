@@ -1,2 +1,6 @@
-const menu = ["Проверка участка", "Проверка квартиры", "Кадастровая стоимость"]
-export default menu
+const menu = [
+  { title: "Проверка квартиры", route: "/kvartira" },
+  { title: "Проверка участка", route: "/uchastok" },
+  { title: "Кадастровая стоимость", route: "/kadastrovaya_stoimost" },
+];
+export default menu;

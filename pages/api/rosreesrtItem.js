@@ -2,7 +2,7 @@ import axios from "axios";
 process.env.NODE_TLS_REJECT_UNAUTHORIZED='0'
 export default async function rosreesrtItem(req, res) {
   const inputValue = req.query.query;
-  console.log('inputValue server', req.query.query);
+  // console.log('inputValue server', req.query.query);
 
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');

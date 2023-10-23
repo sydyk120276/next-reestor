@@ -68,10 +68,10 @@ export default function Header() {
             </div>
             </Link>
             <ul className="flex justify-between items-center w-[50%]">
-                {menu.map((elem) => {
+                {menu.map((elem, index) => {
                     return (
-                        <li key={elem}>
-                            <Link href="/" className="text-[15px] text-[#fff] font-[700]">{elem}</Link>
+                        <li key={`${elem}${index}`}>
+                            <Link href={elem.route} className="text-[15px] text-[#fff] font-[700]">{elem.title}</Link>
                         </li>
                     )
                 })}

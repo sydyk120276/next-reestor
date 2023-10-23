@@ -22,12 +22,13 @@ export default function Search() {
     console.log('checker', checker)
   
     if (checker) {
+      localStorage.removeItem('full_name')
       window.location.href = (`/number/${inputValue}`)
     } else {
       axios.get(`http://localhost:3000/api/rosreesrtItem?query=${inputValue}`)
       .then((response) => {
         console.log('response.........', response.data)
-        setDataRosreestr(response.data);
+        setDataRosreestr(response.data);       
         setInputValue('')
       })
       .catch((error) => {
@@ -36,6 +37,10 @@ export default function Search() {
       });
     }       
       setInputValue('')
+      // if (dataRosreestr.length > 0) {
+      //   setIsLoading(false); // Завершение загрузки
+      //   setVisibledDataRosreestr(true)
+      // }
       setTimeout(() => {
         setIsLoading(false); // Завершение загрузки
         setVisibledDataRosreestr(true)
@@ -43,9 +48,13 @@ export default function Search() {
 
   };
 
-  const selectionHandler = () => {
+  const selectionHandler = (full_name) => {
+    localStorage.setItem('full_name', full_name)
     setVisibledDataRosreestr(false)
     setIsLoading(true); 
+    // if (dataRosreestr.length > 0) {
+    //   setIsLoading(false); 
+    // }
     setTimeout(() => {
       setIsLoading(false); 
     }, 5000)
@@ -102,12 +111,21 @@ const resultsArrayDataRosreestr = dataRosreestr.map((elem) => {
 
   console.log('resultsArrayDataRosreestr', resultsArrayDataRosreestr)
 
+  const setCadastrNumber = () => {
+    setInputValue('61:02:0070202:1824')
+  }
+
+  const setDadataAdress = () => {
+    setInputValue('Москва Лялин 16')
+  }
+
     return (
       <div className="">
       <div className="flex items-center gap-[20px] mb-[15px]">
-        <button className="search-select-item search-select--active">
+        <span className="text-[11px]"><strong>Для поиска</strong> введите адрес или кадастровый номер объекта:</span>
+        {/* <button className="search-select-item">
           Стандартный поиск
-        </button>
+        </button> */}
         {/* <span className="text-[#c1c1c1] text-[11px]">или</span>
         <button className="search-select-item search-select--expand">
           Поиск по адресу (расширенный)
@@ -127,7 +145,6 @@ const resultsArrayDataRosreestr = dataRosreestr.map((elem) => {
             ) : (
                 "Найти объект >"
             )}
-            {/* Найти объект &gt; */}
           </button>  
           <div className="absolute top-[50px] left-0 w-[100%] max-h-[310px] overflow-y-auto flex flex-col shadow-lg shadow-[#f7fffa]-500">
           {visibled && dataDadata && dataDadata.map((el, index) => (
@@ -147,11 +164,11 @@ const resultsArrayDataRosreestr = dataRosreestr.map((elem) => {
 
         <div className="flex gap-[10px] mt-[10px] mb-[50px] items-center text-[11px]">
             <span className="">Например:</span>
-            <button className="border-b-[1px] border-[#4682B4] text-[#4682B4] font-[600]">
-              59:09:0550001:893
+            <button onClick={setCadastrNumber} className="border-b-[1px] border-[#4682B4] text-[#4682B4] font-[600]">
+              61:02:0070202:1824
             </button>
             <span className="font-[700]">или</span>
-            <button className="border-b-[1px] border-[#4682B4] text-[#4682B4] font-[600]">
+            <button onClick={setDadataAdress} className="border-b-[1px] border-[#4682B4] text-[#4682B4] font-[600]">
               {" "}
               Москва Лялин 16
             </button>
@@ -197,7 +214,7 @@ const resultsArrayDataRosreestr = dataRosreestr.map((elem) => {
                         <Link
                           href={`/number/${item.cadnum}`}
                           className="text-start p-[10px]"
-                          onClick={selectionHandler}
+                          onClick={() => selectionHandler(item.full_name)}
                         >
                           <button  className="py-[10px] px-[20px] bg-[#598a60] text-[#fff] rounded-[4px] hover:bg-[#38593d]">
                             Выбрать &gt;

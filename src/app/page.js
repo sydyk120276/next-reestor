@@ -1,18 +1,22 @@
+"use client";
+
 import Header from "./components/Header/header"
 import Footer from "./components/Footer/footer"
 import Main from './main'
 import Advantages from './advantages'
 import Examples from './examples'
-import Services from './services'
+import Static from './static'
+// import Services from './services'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#f7f8f8]">
+    <div id="app" className="flex min-h-screen flex-col bg-[#f7f8f8]">
       <Header />
       <Main />
       <Advantages />
       <Examples />
-      <Services />
+      {/* <Services /> */}
+      <Static />
       <Footer />
     </div>
   )
